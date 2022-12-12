@@ -1,6 +1,7 @@
-package br.com.eguadorodrigo.kafkastarterproject;
+package br.com.eguadorodrigo.kafkastarterproject.producer;
 
 import java.util.Properties;
+import java.util.concurrent.ExecutionException;
 
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerConfig;
@@ -8,15 +9,17 @@ import org.apache.kafka.clients.producer.ProducerRecord;
 import org.apache.kafka.common.serialization.StringSerializer;
 import org.springframework.stereotype.Component;
 
-@Component
-public class MyKafkaProducer {
+import br.com.eguadorodrigo.kafkastarterproject.Topics;
 
-    public static void execute(){
+@Component
+public class QuickStartProducer {
+
+    public static void execute() throws InterruptedException, ExecutionException{
         KafkaProducer<String, String> producer = new KafkaProducer<>(propriedades());
 
-		String value = "Mensagem enviada via Producer no Springboot";
+		String value = "Started...";
 
-		ProducerRecord<String, String> record = new ProducerRecord<String,String>("quickstart", value, value);
+		ProducerRecord<String, String> record = new ProducerRecord<String,String>(Topics.QUICKSTART.getValue(), value, value);
 		
 
 		producer.send(record, (data, ex) -> {
@@ -33,7 +36,7 @@ public class MyKafkaProducer {
 					+ "/ timestamp "
 					+ data.timestamp());
 			
-		});
+		}).get();
     }
 
 
