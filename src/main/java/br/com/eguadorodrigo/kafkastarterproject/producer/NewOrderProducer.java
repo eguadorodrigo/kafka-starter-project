@@ -22,7 +22,7 @@ public class NewOrderProducer {
 		String email = "Welcome! we are processing your order";
 
 		ProducerRecord<String, String> record = new ProducerRecord<String,String>(Topics.ECOMMERCE_NEW_ORDER.getValue(), value, value);
-		ProducerRecord<String, String> emailRecord = new ProducerRecord<String,String>(Topics.ECOMMERCE_NEW_ORDER.getValue(), email, email);
+		ProducerRecord<String, String> emailRecord = new ProducerRecord<String,String>(Topics.ECOMMERCE_SEND_EMAIL.getValue(), email, email);
 
 		Callback callback =  (data, ex) -> {
 			if (ex != null) {

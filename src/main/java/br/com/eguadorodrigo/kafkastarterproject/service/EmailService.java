@@ -12,7 +12,7 @@ public class EmailService implements KafkaConsumerBase {
     private static final Logger LOG = LoggerFactory.getLogger(EmailService.class);
 
     @Override
-    @KafkaHandler
+    @KafkaHandler(isDefault = true)
     public void processMessage(String kafkaMessage) {
         LOG.info("message with String:{}", kafkaMessage);
     }

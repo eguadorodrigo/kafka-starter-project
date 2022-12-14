@@ -12,7 +12,7 @@ public class LogService implements KafkaConsumerBase {
     private static final Logger LOG = LoggerFactory.getLogger(LogService.class);
 
     @Override
-    @KafkaHandler
+    @KafkaHandler(isDefault = true)
     public void processMessage(String kafkaMessage) {
         LOG.info("message by String:{}", kafkaMessage);
     }
