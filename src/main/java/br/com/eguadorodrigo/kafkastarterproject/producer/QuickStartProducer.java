@@ -9,7 +9,7 @@ import org.apache.kafka.clients.producer.ProducerRecord;
 import org.apache.kafka.common.serialization.StringSerializer;
 import org.springframework.stereotype.Component;
 
-import br.com.eguadorodrigo.kafkastarterproject.Topics;
+import br.com.eguadorodrigo.kafkastarterproject.config.Topics;
 
 @Component
 public class QuickStartProducer {

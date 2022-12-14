@@ -3,16 +3,21 @@ package br.com.eguadorodrigo.kafkastarterproject.producer;
 import java.util.Properties;
 import java.util.concurrent.ExecutionException;
 
+import br.com.eguadorodrigo.kafkastarterproject.KafkaStarterProjectApplication;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.clients.producer.ProducerRecord;
 import org.apache.kafka.common.serialization.StringSerializer;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
-import br.com.eguadorodrigo.kafkastarterproject.Topics;
+import br.com.eguadorodrigo.kafkastarterproject.config.Topics;
 
 @Component
 public class NovoPedidoProducer {
+
+	private static final Logger LOG = LoggerFactory.getLogger(NovoPedidoProducer.class);
 
     public static void execute() throws InterruptedException, ExecutionException{
         KafkaProducer<String, String> producer = new KafkaProducer<>(propriedades());
@@ -27,14 +32,11 @@ public class NovoPedidoProducer {
 				ex.printStackTrace();
 				return;
 			}
-			System.out.println("Sucesso Enviado "
-					+ data.topic()
-					+ ":::partition "
-					+ data.partition()
-					+ "/ offset "
-					+ data.offset()
-					+ "/ timestamp "
-					+ data.timestamp());
+			LOG.info("Sucesso Enviado {}:::partition {}/ offset {}/ timestamp {}"
+					,data.topic()
+					,data.partition()
+					,data.offset()
+					,data.timestamp());
 			
 		}).get();
     }
