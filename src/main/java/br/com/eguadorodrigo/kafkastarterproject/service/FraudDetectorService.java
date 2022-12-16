@@ -3,11 +3,14 @@ package br.com.eguadorodrigo.kafkastarterproject.service;
 import br.com.eguadorodrigo.kafkastarterproject.shared.GlobalConstants;
 import br.com.eguadorodrigo.kafkastarterproject.shared.KafkaConsumerBase;
 import br.com.eguadorodrigo.kafkastarterproject.shared.TopicsConstants;
+import org.apache.kafka.common.TopicPartition;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.kafka.annotation.KafkaHandler;
 import org.springframework.kafka.annotation.KafkaListener;
+import org.springframework.stereotype.Component;
 
+@Component
 @KafkaListener(topics = TopicsConstants.ECOMMERCE_NEW_ORDER, groupId = GlobalConstants.FRAUD_GROUP_ID)
 public class FraudDetectorService implements KafkaConsumerBase {
     private static final Logger LOG = LoggerFactory.getLogger(FraudDetectorService.class);

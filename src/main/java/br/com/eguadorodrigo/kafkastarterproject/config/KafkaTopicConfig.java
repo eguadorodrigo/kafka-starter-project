@@ -11,6 +11,8 @@ import org.springframework.kafka.config.TopicBuilder;
 @Configuration
 public class KafkaTopicConfig {
 
+    private static final int MINIMUM_PARTITION = 2;
+
     private static final Logger LOG = LoggerFactory.getLogger(KafkaTopicConfig.class);
     private static final String LOGGER_TEXT = "Criando tópico {}";
 
@@ -27,7 +29,7 @@ public class KafkaTopicConfig {
         LOG.info(LOGGER_TEXT, TopicsConstants.ECOMMERCE_NEW_ORDER);
         return TopicBuilder
                 .name(TopicsConstants.ECOMMERCE_NEW_ORDER)
-                .partitions(2)
+                .partitions(MINIMUM_PARTITION)
                 .build();
     }
 
@@ -44,6 +46,7 @@ public class KafkaTopicConfig {
         LOG.info(LOGGER_TEXT, TopicsConstants.ECOMMERCE_SEND_EMAIL);
         return TopicBuilder
                 .name(TopicsConstants.ECOMMERCE_SEND_EMAIL)
+                .partitions(MINIMUM_PARTITION)
                 .build();
     }
 
