@@ -1,12 +1,14 @@
 package br.com.eguadorodrigo.kafkastarterproject.service;
 
+import br.com.eguadorodrigo.kafkastarterproject.shared.GlobalConstants;
 import br.com.eguadorodrigo.kafkastarterproject.shared.KafkaConsumerBase;
+import br.com.eguadorodrigo.kafkastarterproject.shared.TopicsConstants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.kafka.annotation.KafkaHandler;
 import org.springframework.kafka.annotation.KafkaListener;
 
-@KafkaListener(topics = "ECOMMERCE_SEND_EMAIL", groupId = "emailGroup")
+@KafkaListener(topics = TopicsConstants.ECOMMERCE_SEND_EMAIL, groupId = GlobalConstants.EMAIL_GROUP_ID)
 public class EmailService implements KafkaConsumerBase {
 
     private static final Logger LOG = LoggerFactory.getLogger(EmailService.class);

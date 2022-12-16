@@ -1,12 +1,13 @@
 package br.com.eguadorodrigo.kafkastarterproject.service;
 
+import br.com.eguadorodrigo.kafkastarterproject.shared.GlobalConstants;
 import br.com.eguadorodrigo.kafkastarterproject.shared.KafkaConsumerBase;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.kafka.annotation.KafkaHandler;
 import org.springframework.kafka.annotation.KafkaListener;
 
-@KafkaListener(topics = "ECOMMERCE.*", groupId = "logGroup")
+@KafkaListener(topics = "ECOMMERCE.*", groupId = GlobalConstants.LOG_GROUP_ID)
 public class LogService implements KafkaConsumerBase {
 
     private static final Logger LOG = LoggerFactory.getLogger(LogService.class);

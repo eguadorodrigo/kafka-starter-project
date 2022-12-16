@@ -1,5 +1,6 @@
 package br.com.eguadorodrigo.kafkastarterproject.config;
 
+import br.com.eguadorodrigo.kafkastarterproject.shared.TopicsConstants;
 import org.apache.kafka.clients.admin.NewTopic;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,26 +16,35 @@ public class KafkaTopicConfig {
 
     @Bean
     public NewTopic quickStart() {
-        LOG.info(LOGGER_TEXT, Topics.QUICKSTART.getValue());
-        return TopicBuilder.name(Topics.QUICKSTART.getValue()).build();
+        LOG.info(LOGGER_TEXT, TopicsConstants.QUICKSTART);
+        return TopicBuilder
+                .name(TopicsConstants.QUICKSTART)
+                .build();
     }
 
     @Bean
     public NewTopic newOrder() {
-        LOG.info(LOGGER_TEXT, Topics.ECOMMERCE_NEW_ORDER.getValue());
-        return TopicBuilder.name(Topics.ECOMMERCE_NEW_ORDER.getValue()).build();
+        LOG.info(LOGGER_TEXT, TopicsConstants.ECOMMERCE_NEW_ORDER);
+        return TopicBuilder
+                .name(TopicsConstants.ECOMMERCE_NEW_ORDER)
+                .partitions(2)
+                .build();
     }
 
     @Bean
     public NewTopic novoPedido() {
-        LOG.info(LOGGER_TEXT, Topics.LOJA_NOVO_PEDIDO.getValue());
-        return TopicBuilder.name(Topics.LOJA_NOVO_PEDIDO.getValue()).build();
+        LOG.info(LOGGER_TEXT, TopicsConstants.LOJA_NOVO_PEDIDO);
+        return TopicBuilder
+                .name(TopicsConstants.LOJA_NOVO_PEDIDO)
+                .build();
     }
 
     @Bean
     public NewTopic sendEmail() {
-        LOG.info(LOGGER_TEXT, Topics.ECOMMERCE_SEND_EMAIL.getValue());
-        return TopicBuilder.name(Topics.ECOMMERCE_SEND_EMAIL.getValue()).build();
+        LOG.info(LOGGER_TEXT, TopicsConstants.ECOMMERCE_SEND_EMAIL);
+        return TopicBuilder
+                .name(TopicsConstants.ECOMMERCE_SEND_EMAIL)
+                .build();
     }
 
 }

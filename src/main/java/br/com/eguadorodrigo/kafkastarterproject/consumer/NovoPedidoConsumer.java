@@ -1,6 +1,8 @@
 package br.com.eguadorodrigo.kafkastarterproject.consumer;
 
+import br.com.eguadorodrigo.kafkastarterproject.shared.GlobalConstants;
 import br.com.eguadorodrigo.kafkastarterproject.shared.KafkaConsumerBase;
+import br.com.eguadorodrigo.kafkastarterproject.shared.TopicsConstants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.kafka.annotation.KafkaHandler;
@@ -8,7 +10,7 @@ import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
 
 @Component
-@KafkaListener(topics = "LOJA_NOVO_PEDIDO")
+@KafkaListener(topics = TopicsConstants.LOJA_NOVO_PEDIDO, groupId = GlobalConstants.KAFKA_CONSUME_GROUP_ID)
 public class NovoPedidoConsumer implements KafkaConsumerBase {
 
     private static final Logger LOG = LoggerFactory.getLogger(NovoPedidoConsumer.class);
