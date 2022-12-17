@@ -3,7 +3,6 @@ package br.com.eguadorodrigo.kafkastarterproject.service;
 import br.com.eguadorodrigo.kafkastarterproject.shared.GlobalConstants;
 import br.com.eguadorodrigo.kafkastarterproject.shared.KafkaConsumerBase;
 import br.com.eguadorodrigo.kafkastarterproject.shared.TopicsConstants;
-import org.apache.kafka.common.TopicPartition;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.kafka.annotation.KafkaHandler;
