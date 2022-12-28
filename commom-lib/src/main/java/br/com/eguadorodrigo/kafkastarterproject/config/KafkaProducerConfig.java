@@ -3,7 +3,6 @@ package br.com.eguadorodrigo.kafkastarterproject.config;
 import br.com.eguadorodrigo.kafkastarterproject.shared.GlobalConstants;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.kafka.KafkaProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -17,7 +16,6 @@ import java.util.Map;
 public class KafkaProducerConfig {
     private final KafkaProperties kafkaProperties;
 
-    @Autowired
     public KafkaProducerConfig(KafkaProperties kafkaProperties) {
         this.kafkaProperties = kafkaProperties;
     }
