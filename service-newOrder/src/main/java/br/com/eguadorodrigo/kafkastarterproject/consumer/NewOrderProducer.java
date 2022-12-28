@@ -1,9 +1,9 @@
-package br.com.eguadorodrigo.kafkastarterproject.app;
+package br.com.eguadorodrigo.kafkastarterproject.consumer;
 
 import br.com.eguadorodrigo.kafkastarterproject.config.KafkaProducerConfig;
-import br.com.eguadorodrigo.kafkastarterproject.shared.TopicsConstants;
 import org.apache.kafka.clients.producer.ProducerRecord;
 import org.springframework.boot.autoconfigure.kafka.KafkaProperties;
+import br.com.eguadorodrigo.kafkastarterproject.shared.TopicsConstants;
 
 import java.util.UUID;
 

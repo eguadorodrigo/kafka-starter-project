@@ -1,12 +1,12 @@
-package br.com.eguadorodrigo.kafkastarterproject.service;
+package br.com.eguadorodrigo.kafkastarterproject;
 
-import br.com.eguadorodrigo.kafkastarterproject.shared.GlobalConstants;
-import br.com.eguadorodrigo.kafkastarterproject.shared.KafkaConsumerBase;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.kafka.annotation.KafkaHandler;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
+import br.com.eguadorodrigo.kafkastarterproject.shared.GlobalConstants;
+import br.com.eguadorodrigo.kafkastarterproject.shared.KafkaConsumerBase;
 
 @Component
 @KafkaListener(topicPattern = "ECOMMERCE.*", groupId = GlobalConstants.LOG_GROUP_ID)
