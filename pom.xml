@@ -7,8 +7,8 @@
 		<module>service-fraud</module>
 		<module>service-email</module>
 		<module>service-log</module>
-		<module>service-newOrder</module>
-		<module>commom-lib</module>
+		<module>service-new-order</module>
+		<module>commom-kafka</module>
 	</modules>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -64,7 +64,7 @@
 		</dependency>
 		<dependency>
 			<groupId>br.com.eguadorodrigo</groupId>
-			<artifactId>commom-lib</artifactId>
+			<artifactId>commom-kafka</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 			<scope>compile</scope>
 		</dependency>
@@ -75,6 +75,13 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<goals>
+							<goal>repackage</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
